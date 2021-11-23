@@ -1,13 +1,8 @@
-import React, { Component } from 'react';
+function AppNav() {
 
-class AppNav extends Component {
-
-  render() {
-    return (
-      <nav>
-      </nav>
-    )
-  }
+  return (
+    <nav></nav>
+  )
 }
 
 export default AppNav;
