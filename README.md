@@ -1,5 +1,5 @@
 # Overview
-In this challenge, we will focus on creating three components that we will later use as we create a news site similar to [Reddit](https://www.reddit.com/).
+In this challenge, we will focus on creating three components that we will later use as we create a news site similar to [Hacker News](https://news.ycombinator.com/).
 
 ## Initial Setup
 To start, create a new create-react-app project from your terminal: `npx create-react-app news-site-i`
