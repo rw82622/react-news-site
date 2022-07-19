@@ -24,26 +24,26 @@ function App() {
     created_date: randomArticle.created_date
   })
 
+  const handleTitleClick = (articleID) => { console.log(articleID) }
   // renders
   return (
     <div>
       <h1>AppNav Component</h1>
       <hr />
-
-      <AppNav navItems={navItems} handleNavClick={(clickedItem) => { console.log(clickedItem) }} />
-
+      <AppNav 
+        navItems={navItems} 
+        handleNavClick={(clickedItem) => { console.log(clickedItem) }} 
+      />
       <h1>ArticleTeaser Component</h1>
       <hr />
-
       <ArticleTeaser
         id={article.id}
         title={article.title}
         created_date={article.created_date}
-        handleTitleClick={(articleID) => { console.log(articleID) }} />
-
+        handleTitleClick={handleTitleClick} 
+      />
       <h1>Article Component</h1>
       <hr />
-
       <Article {...article} />
     </div>
   );
