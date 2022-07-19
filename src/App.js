@@ -24,6 +24,8 @@ function App() {
     created_date: randomArticle.created_date
   })
 
+  const handleNavClick = (clickedItem) => { console.log(clickedItem) }
+
   const handleTitleClick = (articleID) => { console.log(articleID) }
 
   // renders
@@ -33,7 +35,7 @@ function App() {
       <hr />
       <AppNav 
         navItems={navItems} 
-        handleNavClick={(clickedItem) => { console.log(clickedItem) }} 
+        handleNavClick={handleNavClick} 
       />
       <h1>ArticleTeaser Component</h1>
       <hr />
