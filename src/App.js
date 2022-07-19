@@ -25,6 +25,7 @@ function App() {
   })
 
   const handleTitleClick = (articleID) => { console.log(articleID) }
+
   // renders
   return (
     <div>
