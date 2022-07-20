@@ -2,7 +2,7 @@
 In this challenge, we will focus on creating three components that we will later use as we create a news site similar to [Hacker News](https://news.ycombinator.com/).
 
 ## Initial Setup
-To start, create a new create-react-app project from your terminal: `npx create-react-app news-site-i`
+To start, create a new create-react-app project from your terminal: `npm create vite news-site-i`
 In your new project, copy over the `components` and `data` directories under `src/` and replace the boilerplate `App.js` with the one given here.
 
 Each of the three components listed below has been stubbed out - your mission is to create the content that the component should `render`, and handle the `props` that are being passed in appropriately.
@@ -26,7 +26,7 @@ The `ArticleTeaser` component should:
 
 
 ## Component II: Article
-In `App.js`, you'll notice that when the `Article` component is rendered, we pass `{...article}` to the component. This is known as the spread syntax. You can read more about it [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Rather than passing the entire `article` object, we are spreading its properties to be passed down via `props`.
+In `App.jsx`, you'll notice that when the `Article` component is rendered, we pass `{...article}` to the component. This is known as the spread syntax. You can read more about it [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Rather than passing the entire `article` object, we are spreading its properties to be passed down via `props`.
 Therefore, the `Article` component should accept the following `props`:
 1. `title` - a string
 2. `created_date` - a string
