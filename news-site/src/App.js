@@ -6,44 +6,38 @@ import navItemsData from './data/navItems.json';
 // components
 import AppNav from './components/AppNav';
 import ArticleTeaser from './components/ArticleTeaser'
-import Article from './components/Article'
-
-// seed values
-const randomArticleIndex = Math.floor(Math.random() * News.length);
-const randomArticle = News[randomArticleIndex];
 
 function App() {
   // states
+  const [showButton, setShowButton] = useState(true)
   const [navItems, setNavItems] = useState(navItemsData)
-  const [article, setArticle] = useState({
-    id: randomArticleIndex,
-    title: randomArticle.title,
-    abstract: randomArticle.abstract,
-    byline: randomArticle.byline,
-    image: randomArticle.multimedia.length ? randomArticle.multimedia[0].url : null,
-    created_date: randomArticle.created_date
-  })
+  const [articles, setArticle] = useState(
+    News.map((item, index) => {
+      return {
+        id: index,
+        title: item.title,
+        abstract: item.abstract,
+        byline: item.byline,
+        image: item.multimedia.length ? item.multimedia[0] : null,
+        created_date: item.created_date
+      }
+    }))
 
   const handleNavClick = (clickedItem) => { console.log(clickedItem) }
 
-  const handleTitleClick = (articleID) => { console.log(articleID) }
-
   // renders
   return (
-    <div>
+    <div className='container'>
       <AppNav 
         navItems={navItems} 
         handleNavClick={handleNavClick} 
       />
-      <hr />
-      <ArticleTeaser
-        id={article.id}
-        title={article.title}
-        created_date={article.created_date}
-        handleTitleClick={handleTitleClick} 
-      />
-      <hr />
-      <Article {...article} />
+      {articles.map((article) => (
+        <ArticleTeaser
+          article={article}
+          key={article.id}
+        /> ))
+      }
     </div>
   );
 }

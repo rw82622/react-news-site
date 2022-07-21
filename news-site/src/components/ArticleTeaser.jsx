@@ -1,8 +1,21 @@
-function ArticleTeaser({ id, title, created_date, handleTitleClick }) {
+import { useState } from 'react'
+import Article from './Article'
+
+function ArticleTeaser({ article }) {
+  const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <div className='hstack gap-2'>
-      <p><a onClick={() => handleTitleClick({ id })}><strong>{title}</strong></a> ({created_date})</p>
+    <div className='articleTeaser'>
+      <span>{article.id}. </span>
+      <span>
+        <strong
+          onClick={() => setShowDetails(!showDetails)}>{article.title}
+        </strong>
+      </span>
+      <p className="date">{article.created_date}</p>
+      <div>
+        {showDetails && <Article {...article} />}
+      </div>
     </div>
   )
 }
