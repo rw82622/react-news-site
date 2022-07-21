@@ -5,7 +5,9 @@ import News from './data/news.json';
 import navItemsData from './data/navItems.json';
 // components
 import AppNav from './components/AppNav';
-import ArticleTeaser from './components/ArticleTeaser'
+import Homepage from './Pages/Homepage';
+import Articlepage from './Pages/Articlepage';
+import {HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   // states
@@ -25,6 +27,10 @@ function App() {
 
   const handleNavClick = (clickedItem) => { console.log(clickedItem) }
 
+  const getArticleById = (articleID) => {
+    return articles[articleID]
+  }
+
   // renders
   return (
     <div className='container'>
@@ -32,12 +38,16 @@ function App() {
         navItems={navItems} 
         handleNavClick={handleNavClick} 
       />
-      {articles.map((article) => (
-        <ArticleTeaser
-          article={article}
-          key={article.id}
-        /> ))
-      }
+      <Router>
+        <Routes>
+          <Route 
+            path='/' 
+            element={<Homepage articles={articles} /> } />
+          <Route 
+            path='/articles/:articleID' 
+            element={<Articlepage getArticleById={getArticleById}/> } />
+        </Routes>
+      </Router>
     </div>
   );
 }

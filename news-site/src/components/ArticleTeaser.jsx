@@ -2,20 +2,17 @@ import { useState } from 'react'
 import Article from './Article'
 
 function ArticleTeaser({ article }) {
-  const [showDetails, setShowDetails] = useState(false)
 
   return (
     <div className='articleTeaser'>
-      <span>{article.id}. </span>
+      <span>{article.id + 1}. </span>
       <span>
-        <strong
-          onClick={() => setShowDetails(!showDetails)}>{article.title}
+        <a href={`#/articles/${article.id + 1}`}><strong>
+          {article.title}
         </strong>
+        </a>
       </span>
       <p className="date">{article.created_date}</p>
-      <div>
-        {showDetails && <Article {...article} />}
-      </div>
     </div>
   )
 }

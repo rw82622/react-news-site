@@ -25,3 +25,13 @@
 footer {
     text-align: center;
 }
+
+.articleTeaser a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.articleTeaser a:visited {
+    text-decoration: none;
+    color: black;
+}
